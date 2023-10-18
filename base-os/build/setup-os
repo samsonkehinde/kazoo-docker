@@ -1,0 +1,4 @@
+#!/bin/sh -e
+yum update && yum install epel-release
+yum remove sendmail samba
+yum install mosh screen postfix firewalld git deltarpm vim htop curl wget dnsutils zip unzip net-tools bind-utils psmisc yum-utils ntp zip unzip htmldoc sox ilbc jq
