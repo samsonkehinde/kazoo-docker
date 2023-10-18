@@ -1,4 +1,16 @@
 #!/bin/sh -e
-yum update && yum install epel-release
-yum remove sendmail samba
-yum install mosh screen postfix firewalld git deltarpm vim htop curl wget dnsutils zip unzip net-tools bind-utils psmisc yum-utils ntp zip unzip htmldoc sox ilbc jq
+# Install all system updates
+yum update -y
+
+# Install Extra Packages for Enterprise Linux
+yum install -y epel-release
+
+# Install required packages
+yum install -y yum-utils psmisc
+
+# Get and install the 2600Hz release package:
+wget https://packages.2600hz.com/centos/7/stable/2600hz-release/4.3/2600hz-release-4.3-0.el7.centos.noarch.rpm
+rpm -Uvh 2600hz-release-4.3-0.el7.centos.noarch.rpm
+
+# Clear yum cache
+yum clean all

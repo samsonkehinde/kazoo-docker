@@ -4,8 +4,9 @@ LABEL Author="Samson Kehinde <samson.kehinde@cloudpractice.cloud>"
 USER root
 WORKDIR /opt
 
+COPY etc/sngrep.repo /etc/yum.repos.d/sngrep.repo
+
 COPY build/setup-os.sh build/setup-os.sh
 RUN build/setup-os.sh
 
-COPY build/dispatcher_add.sh sbin/dispatcher_add.sh
-ENTRYPOINT ["tini", "--", "/run.sh"]
+CMD [ "./run.sh" ]
